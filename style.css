@@ -85,6 +85,7 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
+        flex-shrink: 0;
         
         
     }
