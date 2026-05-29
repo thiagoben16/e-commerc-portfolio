@@ -1,14 +1,15 @@
 * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-
- body {
-        background-color: #f8fafc;
-        color: #0f172a;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
 @media screen and (max-width: 470px) {
     header{
         display: flex;
@@ -73,6 +74,8 @@
         font-size: 0.9rem;
         color: black;
     }
+
+    /* ALTERADO APENAS OS VALORES INTERNOS ABAIXO PARA CENTRALIZAR 1 CARD POR VEZ */
     .main-cards{
         width: 100%;
         min-height: 40vh;
@@ -80,33 +83,31 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         padding-top: 20px;
-    
-    /* O Safari lida muito melhor com gap do que com margin para dar espaço */
-        gap: 20px; 
-    
-    /* ISSO AQUI É O SEGREDO: Dá o espaço nas laterais para o iPhone conseguir centralizar o card */
-        padding-left: 20px;
-        padding-right: 20px;
-    
-    /* Ativa o scroll suave nativo do iOS */
+        
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 48px; 
+        
         -webkit-overflow-scrolling: touch;
-      
-
-    /* 2. Esconde a barra no Firefox */
-    scrollbar-width: none;
-
-    /* 3. Esconde a barra no antigo Internet Explorer e Edge */
-    -ms-overflow-style: none;
-        
-        
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
+
+    /* SELETOR CORRIGIDO PARA TIRAR A BARRA NO IPHONE */
+    .main-cards::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    /* ALTERADO APENAS OS VALORES INTERNOS PARA DETECTAR O TAMANHO DA TELA ATUAL */
     .card-produto{
         flex-shrink: 0;
-        width: 85%;
-        max-width: 320px;
+        width: calc(100vw - 48px); 
+        max-width: 340px;
         height: 24rem;        
         border-radius: 0.6rem;
-        box-shadow: 10px 10px 6px #0f172a;
+        box-shadow: 10px 10px 6px rgba(15, 23, 42, 0.2);
         border: 1px solid #e2e8f0;
         overflow: hidden;
         display: flex;
@@ -114,15 +115,12 @@
         justify-content: space-evenly;
         align-items: stretch;
         scroll-snap-align: center;
-        margin: 0 5rem;
+        margin: 0; 
     }
 
-    .main-cards::-web-kitscrollbar{
-        display: none;
-    }
     .card-produto .card-imagem {
         width: 100%;
-        height: 10rem; /* Altura fixa excelente para a imagem */
+        height: 10rem;
         background-color: #f1f5f9;
     }
 
@@ -137,8 +135,8 @@
         flex-direction: column;        
         align-items: center;
         text-align: center;
-       justify-content: center;
-       gap: 1rem;
+        justify-content: center;
+        gap: 1rem;
         padding: 0.2rem 0.5rem;
         flex-grow: 1;
     }
@@ -152,7 +150,7 @@
     .card-texto p {
         font-size: 1.15rem;
         font-weight: 800;
-        color: #ff6b35; /* Preço na cor laranja da loja */
+        color: #ff6b35;
     }
 
     .btn-comprar {
@@ -165,36 +163,30 @@
         font-weight: 700;
         cursor: pointer;
     }
+    
     footer {
-    background-color: #15172a; /* Cor escura seguindo o padrão do seu botão/banner */
-    color: #ffffff;            /* Texto branco para dar contraste */
-    padding: 30px 20px;        /* Espaçamento interno (cima/baixo e laterais) */
-    
-    display: flex;
-    flex-direction: column;    /* Coloca os elementos um embaixo do outro no celular */
-    align-items: center;       /* Centraliza tudo horizontalmente */
-    justify-content: center;   /* Centraliza verticalmente */
-    text-align: center;        /* Garante que os textos fiquem centralizados */
-    gap: 15px;                 /* Cria um espaçamento padrão entre os blocos de texto/links */
-    
-    width: 100%;
-    margin-top: 40px;          /* Afasta o rodapé dos cards de produtos */
-}
+        background-color: #15172a;
+        color: #ffffff;            
+        padding: 30px 20px;        
+        display: flex;
+        flex-direction: column;    
+        align-items: center;       
+        justify-content: center;   
+        text-align: center;        
+        gap: 15px;                 
+        width: 100%;
+        margin-top: 40px;          
+    }
 
-/* Se você tiver links de navegação ou redes sociais no rodapé */
-footer a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
+    footer a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
 
-footer a:hover {
-    color: #ff6600;            /* Cor laranja de destaque ao passar o mouse (combinando com as ofertas) */
-}
-
-
-    
-     
+    footer a:hover {
+        color: #ff6600;            
+    }
 }
 
 @media screen and (min-width: 471px) {
@@ -225,7 +217,7 @@ footer a:hover {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 45vh; /* Banner um pouco mais alto no PC */
+        height: 45vh;
         padding: 3rem;
         text-align: center;
         display: flex;
@@ -237,7 +229,7 @@ footer a:hover {
 
     .main-banner h1 {
         color: #ff6b35;
-        font-size: 2.5rem; /* Fonte maior para telas grandes */
+        font-size: 2.5rem;
         font-weight: 800;
         letter-spacing: 0.05rem;
     }
@@ -246,7 +238,7 @@ footer a:hover {
         color: #e2e8f0;
         font-size: 1.1rem;
         font-weight: 500;
-        max-width: 35rem; /* Permite o texto espalhar melhor */
+        max-width: 35rem;
         line-height: 1.6rem;
     }
 
@@ -263,39 +255,38 @@ footer a:hover {
     }
 
     .btn-banner:hover {
-        transform: scale(1.05); /* Efeito suave ao passar o mouse */
+        transform: scale(1.05);
     }
 
-    /* O Carrossel vira uma Grade (Grid) Automática */
     .main-cards {
         width: 100%;
-        max-width: 1200px; /* Limita a largura máxima para não sumir nas pontas */
-        margin: 0 auto;    /* Centraliza a vitrine na tela */
+        max-width: 1200px;
+        margin: 0 auto;    
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Organiza em colunas automáticas */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2.5rem;
         padding: 4rem 2rem;
-        overflow-x: visible; /* Desativa a rolagem lateral */
+        overflow-x: visible;
         scroll-snap-type: none;
     }
 
     .card-produto {
-        width: 100%; /* O card se adapta ao tamanho da coluna do Grid */
+        width: 100%;
         max-width: 100%;
         height: 25rem;        
         border-radius: 0.6rem;
-        box-shadow: 6px 6px 15px rgba(15, 23, 42, 0.15); /* Sombra mais elegante para PC */
+        box-shadow: 6px 6px 15px rgba(15, 23, 42, 0.15);
         border: 1px solid #e2e8f0;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin: 0; /* Remove as margens do carrossel */
+        margin: 0;
         transition: transform 0.3s;
     }
 
     .card-produto:hover {
-        transform: translateY(-5px); /* Card sobe de leve no hover */
+        transform: translateY(-5px);
     }
 
     .card-produto .card-imagem {
@@ -339,7 +330,7 @@ footer a:hover {
         background-color: #0f172a;
         color: white;
         border: none;
-        border-radius: 0 0 0.3rem 0.3rem; /* Alinha o botão nas quinas inferiores */
+        border-radius: 0 0 0.3rem 0.3rem;
         font-weight: 700;
         cursor: pointer;
         transition: background-color 0.2s;
@@ -349,14 +340,13 @@ footer a:hover {
         background-color: #1e293b;
     }
 
-    /* Rodapé adaptado para telas maiores */
     footer {
         background-color: #15172a;
         color: #ffffff;            
         padding: 40px 80px;        
         display: flex;
-        flex-direction: row; /* Elementos lado a lado */
-        justify-content: space-between; /* Um em cada ponta */
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;       
         text-align: left;        
         width: 100%;
