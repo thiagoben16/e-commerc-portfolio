@@ -102,7 +102,7 @@
         justify-content: space-evenly;
         align-items: stretch;
         scroll-snap-align: center;
-        margin: 0 3rem;
+        margin: 0 5rem;
     }
 
     .main-cards::-web-kitscrollbar{
