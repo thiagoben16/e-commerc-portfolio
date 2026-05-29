@@ -81,7 +81,9 @@
         justify-content: flex-start;     
         align-items: center;
         gap: 1.5rem;
-        padding: 2rem  0.5rem;
+        padding-top: 2rem;
+        padding-left: 20px;
+        padding-right: 20px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
