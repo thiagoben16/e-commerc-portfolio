@@ -80,10 +80,9 @@
         flex-direction: row;  
         justify-content: flex-start;     
         align-items: center;
-        gap: 1.5rem;
+        gap: 20px;
         padding-top: 2rem;
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 20px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
